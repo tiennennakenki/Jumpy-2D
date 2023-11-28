@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : SaiMonoBehaviour
 {
-    [SerializeField] protected Transform player;
+    [SerializeField] public Transform player;
 
     protected override void LoadComponents()
     {
@@ -20,8 +20,27 @@ public class CameraController : SaiMonoBehaviour
     protected virtual void LoadPlayer()
     {
         if (this.player != null) return;
-        this.player = GameObject.Find("Player").transform;
-        Debug.LogWarning(transform.name + ": LoadPlayer", gameObject);
+        GameObject playerManager = GameObject.Find("PlayerManager");
+
+        if (playerManager != null)
+        {
+            // Get the first child's transform
+            Transform firstChild = playerManager.transform.GetChild(0);
+
+            if (firstChild != null)
+            {
+                this.player = firstChild;
+                Debug.Log(transform.name + ": LoadPlayer - Player loaded", gameObject);
+            }
+            else
+            {
+                Debug.LogWarning("PlayerManager has no children.", playerManager);
+            }
+        }
+        else
+        {
+            Debug.LogError("PlayerManager not found in the scene.");
+        }
     }
 
     protected virtual Vector3 FollowPlayer()
