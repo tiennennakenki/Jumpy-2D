@@ -7,7 +7,7 @@ public class WayPointFollower : SaiMonoBehaviour
     [SerializeField] protected GameObject[] wayPoints;
     protected int currentIndex = 0;
 
-    [SerializeField] protected float speed = 2f;
+    [SerializeField] protected float speed = 5f;
     public float Speed => speed;
 
     protected override void Update()

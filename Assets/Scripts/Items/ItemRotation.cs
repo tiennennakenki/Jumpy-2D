@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemRotation : SaiMonoBehaviour
 {
-    [SerializeField] protected float speed = 2f;
+    [SerializeField] protected float speed = 5f;
     public float Speed => speed;
 
     protected override void Update()

@@ -6,14 +6,16 @@ using UnityEngine;
 public class PlayerMovement: SaiMonoBehaviour
 {
     [SerializeField] protected Rigidbody2D rb;
-    [SerializeField] protected float moveSpeed = 7f;
-    [SerializeField] protected float jumpForce = 14f;
+    [SerializeField] protected float moveSpeed = 10f;
+    [SerializeField] protected float jumpForce = 20f;
     [SerializeField] protected Animator animator;
     [SerializeField] protected float directionX = 0f;
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] protected BoxCollider2D coll;
     [SerializeField] protected LayerMask jumpableGround;
+    [SerializeField] protected LayerMask jumpableWall;
     [SerializeField] protected AudioSource jumpSoundEffect;
+    [SerializeField] protected float wallJumpCoolDown;
 
     [SerializeField] protected MovementState state;
     protected override void LoadComponents()
@@ -23,13 +25,26 @@ public class PlayerMovement: SaiMonoBehaviour
         this.LoadAnimator();
         this.LoadSpriteRenderer();
         this.LoadBoxCollider2D();
-        this.LoadJumpableGroundD();
+        this.LoadJumpableGround();
+        this.LoadJumpableWall();
         this.LoadJumpSoundEffect();
     }
 
-    protected virtual void LoadJumpableGroundD()
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        this.rb.gravityScale = 6;
+        this.rb.freezeRotation = true;
+    }
+
+    protected virtual void LoadJumpableGround()
     {
         this.jumpableGround = 1 << LayerMask.NameToLayer("Ground");
+    }
+
+    protected virtual void LoadJumpableWall()
+    {
+        this.jumpableWall = 1 << LayerMask.NameToLayer("Wall");
     }
 
     protected virtual void LoadJumpSoundEffect()
@@ -88,13 +103,49 @@ public class PlayerMovement: SaiMonoBehaviour
     protected virtual void Moving()
     {
         directionX = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(directionX * this.moveSpeed, rb.velocity.y);
+        
 
+        if(this.wallJumpCoolDown > 0.3f)
+        {
+            rb.velocity = new Vector2(directionX * this.moveSpeed, rb.velocity.y);
+            if (OnWall() && !IsGrounded())
+            {
+                rb.gravityScale = 0;
+                rb.velocity = Vector2.zero;
+                this.wallJumpCoolDown = 0;
+            }
+            else
+            {
+                rb.gravityScale = 6;
+            }
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+            if (Input.GetButtonDown("Jump"))
+                Jump();
+        }
+        else
+        {
+            this.wallJumpCoolDown += Time.deltaTime;
+        }
+        
+    }
+
+    protected virtual void Jump()
+    {
+        if (IsGrounded())
         {
             jumpSoundEffect.Play();
             rb.velocity = new Vector2(rb.velocity.x, this.jumpForce);
+        }
+        else if(OnWall() && !IsGrounded())
+        {
+            if (directionX == 0)
+            {
+                rb.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10, 0);
+                transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else
+                rb.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 3, 6);
+            this.wallJumpCoolDown = 0;
         }
     }
 
@@ -149,5 +200,10 @@ public class PlayerMovement: SaiMonoBehaviour
     protected bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+    protected bool OnWall()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, new Vector2(transform.localScale.x, 0), .1f, jumpableWall);
     }
 }

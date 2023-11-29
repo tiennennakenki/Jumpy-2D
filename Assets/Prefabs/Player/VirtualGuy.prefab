@@ -227,8 +227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7043216274561660490}
-  moveSpeed: 7
-  jumpForce: 14
+  moveSpeed: 10
+  jumpForce: 20
   animator: {fileID: 7014885616568666821}
   directionX: 0
   sprite: {fileID: 6105708629187950326}
