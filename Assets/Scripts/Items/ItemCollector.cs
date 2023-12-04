@@ -52,7 +52,7 @@ public class ItemCollector : SaiMonoBehaviour
             this.collectSoundEffect.Play();
             Destroy(collision.gameObject);
             cherries++;
-            this.cherriesText.text = "Cherries: " + cherries;
+            this.cherriesText.text = "x" + cherries;
         }
     }
 }

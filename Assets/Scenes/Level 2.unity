@@ -4615,6 +4615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaskDude
       objectReference: {fileID: 0}
+    - target: {fileID: 5794744428724527972, guid: b3f93669aa032c44b93f0be58af80fb3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
