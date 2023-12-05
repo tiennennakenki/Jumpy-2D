@@ -41,14 +41,15 @@ public class MenuLevel : SaiMonoBehaviour
     protected virtual void UnlockedLevel()
     {
         int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        //Debug.LogError("UnlockedLevel = " + unlockedLevel);
         for (int i = 0; i < menuLevels.Count; i++)
         {
             menuLevels[i].interactable = false;
         }
 
-        for (int i = 0; i < unlockedLevel; i++)
+        for (int j = 0; j < unlockedLevel; j++)
         {
-            menuLevels[i].interactable = true;
+            menuLevels[j].interactable = true;
         }
     }
 
