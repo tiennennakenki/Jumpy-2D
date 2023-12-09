@@ -661,6 +661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1387310390020061945}
   - component: {fileID: 1518348917189391525}
+  - component: {fileID: 6122757389177554043}
   m_Layer: 5
   m_Name: BGMusicSlider
   m_TagString: Untagged
@@ -741,7 +742,32 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6122757389177554043}
+        m_TargetAssemblyTypeName: VolumeSetting, Assembly-CSharp
+        m_MethodName: ChangeVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6122757389177554043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658386158343690685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56830cb0ab4efdc468dac39f6fb59df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgMusicSlider: {fileID: 1518348917189391525}
 --- !u!1 &3803778151280644417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2174,7 +2200,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2980232182438801653}
   - component: {fileID: 1858614022203249714}
-  - component: {fileID: 7955763208294261997}
   m_Layer: 0
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -2211,17 +2236,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 8747327895077136689}
---- !u!114 &7955763208294261997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8747327895077136689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56830cb0ab4efdc468dac39f6fb59df8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myMixer: {fileID: 24100000, guid: 6ea789e655334be47947b2e054a4f4e8, type: 2}
-  bgMusic: {fileID: 1518348917189391525}

@@ -146,7 +146,6 @@ public class PlayerMovement: SaiMonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, this.jumpForce);
 
         this.doubleJumpable = !this.doubleJumpable;
-        Debug.Log("IsGrounded: " + this.doubleJumpable);
     }
 
     protected virtual void DoubleJump()
