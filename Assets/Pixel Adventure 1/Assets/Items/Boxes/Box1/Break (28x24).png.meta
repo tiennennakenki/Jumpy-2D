@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -155,7 +155,7 @@ TextureImporter:
         width: 28
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,7 +168,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Break (28x24)_1
+      name: Break (28x24)_2
       rect:
         serializedVersion: 2
         x: 28
@@ -176,28 +176,7 @@ TextureImporter:
         width: 28
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d191b9d52c03c2f4b8b0f1192543426f
-      internalID: 2985246200973115026
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Break (28x24)_2
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 0
-        width: 28
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,12 +192,12 @@ TextureImporter:
       name: Break (28x24)_3
       rect:
         serializedVersion: 2
-        x: 84
+        x: 56
         y: 0
         width: 28
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,6 +205,27 @@ TextureImporter:
       bones: []
       spriteID: 42e3af7d015f06f42be38196e48e27e8
       internalID: 2874570451049708880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Break (28x24)_5
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ecff6462d452041ac0d2718ce90b44
+      internalID: -1719789947
       vertices: []
       indices: 
       edges: []
@@ -245,6 +245,8 @@ TextureImporter:
       Break (28x24)_1: 2985246200973115026
       Break (28x24)_2: -8102069304995713464
       Break (28x24)_3: 2874570451049708880
+      Break (28x24)_4: 2131379363
+      Break (28x24)_5: -1719789947
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

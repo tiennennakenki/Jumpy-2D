@@ -36,6 +36,7 @@ public class HealthCollectable : SaiMonoBehaviour
             collision.GetComponent<PlayerLife>().AddHealth(healthValue);
             this.addHealthSoundEffect.Play();
             gameObject.SetActive(false);
+            Destroy(transform.gameObject);
         }
     }
 }
