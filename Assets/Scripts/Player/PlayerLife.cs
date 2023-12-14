@@ -38,11 +38,6 @@ public class PlayerLife : SaiMonoBehaviour
         this.LoadHurtSoundEffect();
     }
 
-    protected override void Update()
-    {
-        base.Update();
-    }
-
     protected virtual void LoadAnimator()
     {
         if (this.animator != null) return;
@@ -95,11 +90,10 @@ public class PlayerLife : SaiMonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap"))
+        if (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Fire"))
         {
-            this.TakeDamge(1);
+            this.TakeDamage(1);
         }
-        
     }
 
     protected virtual void Die()
@@ -117,7 +111,7 @@ public class PlayerLife : SaiMonoBehaviour
             this.hurtSoundEffect.Play();
             this.animator.SetTrigger("hurt");
 
-            Invoke("DisableInvincibility", 0.5f);
+            Invoke("DisableInvincibility", 1f);
         }
     }
 
@@ -131,7 +125,7 @@ public class PlayerLife : SaiMonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    protected virtual void TakeDamge(float _damge)
+    public virtual void TakeDamage(float _damge)
     {
         if (this.isInvincible) return;
         this.currentHealth = Mathf.Clamp(this.currentHealth - _damge, 0, startingHeath);

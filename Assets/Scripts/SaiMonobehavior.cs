@@ -30,6 +30,11 @@ public class SaiMonoBehaviour : MonoBehaviour
         //
     }
 
+    protected virtual void FixedUpdate()
+    {
+        //
+    }
+
     protected virtual void ResetValue()
     {
         // For override

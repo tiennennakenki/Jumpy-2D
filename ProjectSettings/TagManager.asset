@@ -8,6 +8,8 @@ TagManager:
   - Text
   - Trap
   - Ground
+  - Fire
+  - Star
   layers:
   - Default
   - TransparentFX

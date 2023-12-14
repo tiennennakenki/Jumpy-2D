@@ -667,7 +667,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006589651, y: 0.054178596}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -678,7 +678,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.77508974, y: 0.98411155}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &7253230756256626816
 MonoBehaviour:
@@ -692,10 +692,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210783187c21159468717d12491d46f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cherry: {fileID: 1965495361967664109}
   shatteredCrate: {fileID: 2365036063450028607}
   crate: {fileID: 8624114904125894045}
-  soundShatteredCrateEffect: {fileID: 833357839767768686}
+  soundShatteredCrateEffect: {fileID: 0}
+  cherry: {fileID: 1965495361967664109}
+  countHit: 1
 --- !u!114 &544241128863545805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,6 +974,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 4205624287855384491}
     m_Modifications:
     - target: {fileID: 2319685438311664800, guid: 1ebaf3a0d0a8ebe47970d9d8b1bb732a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319685438311664800, guid: 1ebaf3a0d0a8ebe47970d9d8b1bb732a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319685438311664800, guid: 1ebaf3a0d0a8ebe47970d9d8b1bb732a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1012,6 +1021,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4444036577275292049, guid: 1ebaf3a0d0a8ebe47970d9d8b1bb732a, type: 3}
+      propertyPath: m_Size.x
+      value: 0.49445105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444036577275292049, guid: 1ebaf3a0d0a8ebe47970d9d8b1bb732a, type: 3}
+      propertyPath: m_Size.y
+      value: 0.44324684
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444036577275292049, guid: 1ebaf3a0d0a8ebe47970d9d8b1bb732a, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0070745945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444036577275292049, guid: 1ebaf3a0d0a8ebe47970d9d8b1bb732a, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.14760137
+      objectReference: {fileID: 0}
     - target: {fileID: 4763065756911163408, guid: 1ebaf3a0d0a8ebe47970d9d8b1bb732a, type: 3}
       propertyPath: m_Name
       value: Cherry
@@ -1022,7 +1047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4763065756911163408, guid: 1ebaf3a0d0a8ebe47970d9d8b1bb732a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
