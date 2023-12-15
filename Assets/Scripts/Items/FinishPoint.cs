@@ -88,7 +88,7 @@ public class FinishPoint : SaiMonoBehaviour
 
     protected virtual bool CheckCountCherry()
     {
-        if (this.itemsCollector.Cherries >= 10) return true;
+        if (this.itemsCollector.Cherries >= 15) return true;
         else return false;
     }
 
@@ -105,12 +105,32 @@ public class FinishPoint : SaiMonoBehaviour
 
     protected virtual void UnlockNewLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex + 1 >= PlayerPrefs.GetInt("ReachedIndex"))
+        int currentUnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+
+        // Kiểm tra nếu UnlockedLevel chưa đạt tới giới hạn là 3
+        if (currentUnlockedLevel < 3)
+        {
+            if (SceneManager.GetActiveScene().buildIndex + 1 >= PlayerPrefs.GetInt("ReachedIndex"))
+            {
+                PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
+
+                // Tăng giá trị UnlockedLevel chỉ khi nó chưa đạt tới giới hạn là 3
+                PlayerPrefs.SetInt("UnlockedLevel", currentUnlockedLevel + 1);
+
+                PlayerPrefs.Save();
+            }
+        }
+        else
         {
             PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
-            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+
+            // Tăng giá trị UnlockedLevel chỉ khi nó chưa đạt tới giới hạn là 3
+            PlayerPrefs.SetInt("UnlockedLevel", 3);
+
             PlayerPrefs.Save();
         }
+
+
     }
 
 

@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &831840139635616072
 Transform:
   m_ObjectHideFlags: 0
@@ -264,3 +264,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3656872491161903029}
   finishSoundEffect: {fileID: 1401496756550312069}
+  itemsCollector: {fileID: 0}
