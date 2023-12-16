@@ -21,6 +21,7 @@ public class PlayerLife : SaiMonoBehaviour
     [SerializeField] protected float currentHealth;
     public float CurrentHeath => currentHealth;
 
+    //[SerializeField] protected bool isInvincible = false;
     [SerializeField] protected bool isInvincible = false;
 
     protected override void Awake()
